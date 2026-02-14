@@ -86,7 +86,6 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemDTO getItemById(String id) {
-
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new CustomException("Item not found"));
 
