@@ -1,74 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POS PRO | Customers</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Customer Management</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/customer-style.css">
 </head>
+
 <body>
+<div class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="item.html">Item</a>
+    <a href="order.html">Place order</a>
+    <br><br>
+</div>
 
-<aside class="sidebar-mini">
-    <div class="logo"><i class="fas fa-bolt"></i></div>
-    <nav class="mini-nav">
-        <a href="../index.html" title="Dashboard"><i class="fas fa-th-large"></i></a>
-        <a href="customer.html" class="active" title="Customers"><i class="fas fa-users"></i></a>
-        <a href="item.html" title="Inventory"><i class="fas fa-box"></i></a>
-        <a href="place-order.html" title="Orders"><i class="fas fa-shopping-cart"></i></a>
-    </nav>
-    <div class="user-av">A</div>
-</aside>
+<h2>Customer Management</h2>
 
-<main class="content-wrapper">
-    <header class="header">
-        <div class="title-section">
-            <h1>Customer Management</h1>
-            <p>Register and manage store clients</p>
-        </div>
-    </header>
+<div class="customer-wrapper">
+    <div class="customer-card">
+        <input type="text" id="id" placeholder="Customer ID" readonly><br><br>
+        <input type="text" id="name" placeholder="Customer Name"><br><br>
+        <input type="text" id="address" placeholder="Customer Address"><br><br>
 
-    <section class="action-bar-card">
-        <form id="customer-form" class="horizontal-form" onsubmit="return false;">
-            <div class="input-field">
-                <span>ID</span>
-                <input type="text" id="id" placeholder="C001">
-            </div>
-            <div class="input-field">
-                <span>Full Name</span>
-                <input type="text" id="name" placeholder="Name here">
-            </div>
-            <div class="input-field">
-                <span>Address</span>
-                <input type="text" id="address" placeholder="Address here">
-            </div>
+        <button onclick="saveCustomer()">Save</button>
+        <button onclick="updateCustomer()">Update</button>
+        <button onclick="deleteCustomer()">Delete</button>
+        <button onclick="clearCustomer()">Clear</button>    </div>
+</div>
 
-            <div class="button-strip">
-                <button type="button" class="btn-main btn-save" onclick="saveCustomer()" title="Add New"><i class="fas fa-plus"></i></button>
-                <button type="button" class="btn-main btn-edit" onclick="updateCustomer()" title="Update"><i class="fas fa-pen"></i></button>
-                <button type="button" class="btn-main btn-trash" onclick="deleteCustomer()" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                <button type="button" class="btn-main btn-reset" onclick="clearCustomer()" title="Clear"><i class="fas fa-redo"></i></button>
-            </div>
-        </form>
-    </section>
 
-    <section class="table-container">
-        <table class="modern-table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-                <th>Address</th>
-            </tr>
-            </thead>
-            <tbody id="customer-list">
-            </tbody>
-        </table>
-    </section>
-</main>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="../js/customer-script.js"></script>
+<hr>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody id="customer-list">
+    </tbody>
+</table>
+
+<script src="../js/customer.js"></script>
+
 </body>
 </html>

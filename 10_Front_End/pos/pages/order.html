@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order Management</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/order-style.css">
+</head>
+
+<body>
+<div class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="customer.html">Customer</a>
+    <a href="item.html">Item</a>
+    <br><br>
+</div>
+
+<h2>Place Order</h2>
+
+<div class="order-container">
+    <label>Customer:</label>
+    <select id="customerSelect"></select>
+
+    <label>Date:</label>
+    <input type="date" id="orderDate">
+
+    <hr>
+
+    <h3>Add Item</h3>
+
+    <label>Item:</label>
+    <select id="itemSelect"></select>
+
+    <label>Qty:</label>
+    <input type="number" id="orderQty" min="1">
+
+    <button onclick="addToCart()">Add To Cart</button>
+
+    <hr>
+
+    <h3>Cart</h3>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Qty</th>
+            <th>Remove</th>
+        </tr>
+        </thead>
+        <tbody id="cartTable"></tbody>
+    </table>
+
+    <br>
+    <button onclick="placeOrder()">Place Order</button>
+
+    <hr>
+
+    <h3>Order History</h3>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody id="orderHistory"></tbody>
+    </table>
+</div>
+
+<script src="../js/order.js"></script>
+</body>
+</html>

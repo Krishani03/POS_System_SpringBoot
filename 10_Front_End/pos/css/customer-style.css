@@ -1,63 +1,80 @@
-:root {
-    --bg: #f3f4f6;
-    --sidebar: rgba(62, 51, 46, 0.13);
-    --primary: #03948d;
-    --text-dark: #1e293b;
-    --text-gray: #64748b;
-    --white: #ffffff;
+body {
+    background-color: #121212;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
+.navbar {
+    background-color: #1a1a1a;
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: flex;
+    gap: 15px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-body { background: var(--bg); display: flex; color: var(--text-dark); min-height: 100vh; }
-
-/* Sidebar */
-.sidebar-mini {
-    width: 80px; background: var(--sidebar); height: 100vh; position: fixed;
-    display: flex; flex-direction: column; align-items: center; padding: 30px 0; justify-content: space-between;
+.navbar a {
+    color: #00c6ff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
 }
-.logo { color: var(--primary); font-size: 1.5rem; }
-.mini-nav { display: flex; flex-direction: column; gap: 30px; }
-.mini-nav a { color: #94a3b8; font-size: 1.2rem; transition: 0.3s; text-decoration: none; }
-.mini-nav a.active, .mini-nav a:hover { color: var(--primary); }
-.user-av { width: 35px; height: 35px; background: var(--primary); border-radius: 10px; display: grid; place-items: center; color: white; font-weight: bold; }
 
-/* Content */
-.content-wrapper { margin-left: 80px; width: calc(100% - 80px); padding: 40px; }
-.header { margin-bottom: 30px; }
-.header h1 { font-size: 1.8rem; font-weight: 700; color: #0f172a; }
+.navbar a:hover {
+    background-color: #00c6ff;
+    color: #1a1a1a;
+}
 
-/* Form Card */
-.action-bar-card {
-    background: var(--white); padding: 25px; border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); margin-bottom: 30px;
-}
-.horizontal-form { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
-.input-field { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 150px; }
-.input-field span { font-size: 0.75rem; font-weight: 700; color: var(--text-gray); text-transform: uppercase; }
-.input-field input {
-    background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px;
-    border-radius: 10px; font-weight: 500; outline: none; transition: 0.3s;
-}
-.input-field input:focus { border-color: var(--primary); background: white; }
 
-/* Button Styling */
-.button-strip { display: flex; gap: 8px; }
-.btn-main {
-    width: 45px; height: 45px; border-radius: 10px; border: none; cursor: pointer;
-    transition: 0.3s; color: white; display: flex; align-items: center; justify-content: center;
+.customer-wrapper {
+    max-width: 900px;
+    margin: auto;
 }
-.btn-save { background: var(--primary); }
-.btn-edit { background: #3b82f6; }
-.btn-trash { background: #ef4444; }
-.btn-reset { background: #64748b; }
-.btn-main:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
-/* Table Styling */
-.table-container { background: var(--white); border-radius: 16px; padding: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-.modern-table { width: 100%; border-collapse: collapse; }
-.modern-table th {
-    text-align: left; padding: 15px 20px; color: var(--text-gray);
-    font-size: 0.75rem; text-transform: uppercase; border-bottom: 1px solid #f1f5f9;
+.customer-card {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
-.modern-table td { padding: 18px 20px; border-bottom: 1px solid #f8fafc; font-size: 0.95rem; }
-.modern-table tr:hover { background: #f8fafc; }
+
+.customer-card input {
+    background: #2a2a2a;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.customer-card button {
+    background: #00adb5;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border-radius: 8px;
+    color: white;
+    transition: 0.3s;
+}
+
+.customer-card button:hover {
+    background: #00fff5;
+    color: black;
+}
+
+table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    background: #1c1c1c;
+}
+
+table tr:hover {
+    background: #333;
+}

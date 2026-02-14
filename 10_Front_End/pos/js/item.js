@@ -1,14 +1,29 @@
 const baseUrl = "http://localhost:8080/api/v1/item";
 
 $(document).ready(function () {
-    getAllItem();
+    getAllItems();
 });
 
 function saveItem() {
 
-    const name = $('#name').val();
-    const qty = $('#qty').val();
-    const price = $('#price').val();
+    const name = $('#itemName').val().trim();
+    const qty = parseInt($('#itemQty').val());
+    const price = parseFloat($('#itemPrice').val());
+
+    if (!name) {
+        alert("Item name is required!");
+        return;
+    }
+
+    if (qty < 0) {
+        alert("Quantity cannot be negative!");
+        return;
+    }
+
+    if (price <= 0) {
+        alert("Price must be positive!");
+        return;
+    }
 
     $.ajax({
         url: baseUrl,
@@ -17,7 +32,7 @@ function saveItem() {
         data: JSON.stringify({ name, qty, price }),
         success: function (response) {
             alert(response.message);
-            getAllItem();
+            getAllItems();
             clearItem();
         },
         error: function (error) {
@@ -28,10 +43,10 @@ function saveItem() {
 
 function updateItem() {
 
-    const id = $('#id').val();
-    const name = $('#name').val();
-    const qty = $('#qty').val();
-    const price = $('#price').val();
+    const id = $('#itemId').val();
+    const name = $('#itemName').val().trim();
+    const qty = parseInt($('#itemQty').val());
+    const price = parseFloat($('#itemPrice').val());
 
     if (!id) {
         alert("Select item first!");
@@ -45,7 +60,7 @@ function updateItem() {
         data: JSON.stringify({ id, name, qty, price }),
         success: function (response) {
             alert(response.message);
-            getAllItem();
+            getAllItems();
             clearItem();
         },
         error: function (error) {
@@ -54,9 +69,10 @@ function updateItem() {
     });
 }
 
+
 function deleteItem() {
 
-    const id = $('#id').val();
+    const id = $('#itemId').val();
 
     if (!id) {
         alert("Select item first!");
@@ -68,7 +84,7 @@ function deleteItem() {
         method: 'DELETE',
         success: function (response) {
             alert(response.message);
-            getAllItem();
+            getAllItems();
             clearItem();
         },
         error: function (error) {
@@ -77,7 +93,8 @@ function deleteItem() {
     });
 }
 
-function getAllItem() {
+
+function getAllItems() {
 
     $('#item-list').empty();
 
@@ -89,7 +106,7 @@ function getAllItem() {
             for (let item of response) {
 
                 const row =
-                    `<tr onclick="selectItem('${item.id}','${item.name}','${item.qty}','${item.price}')">
+                    `<tr onclick="selectItem('${item.id}','${item.name}',${item.qty},${item.price})">
                         <td>${item.id}</td>
                         <td>${item.name}</td>
                         <td>${item.qty}</td>
@@ -98,23 +115,29 @@ function getAllItem() {
 
                 $('#item-list').append(row);
             }
+        },
+        error: function () {
+            alert("Failed to load items!");
         }
     });
 }
 
+
 function selectItem(id, name, qty, price) {
-    $('#id').val(id);
-    $('#name').val(name);
-    $('#qty').val(qty);
-    $('#price').val(price);
+    $('#itemId').val(id);
+    $('#itemName').val(name);
+    $('#itemQty').val(qty);
+    $('#itemPrice').val(price);
 }
 
+
 function clearItem() {
-    $('#id').val('');
-    $('#name').val('');
-    $('#qty').val('');
-    $('#price').val('');
+    $('#itemId').val('');
+    $('#itemName').val('');
+    $('#itemQty').val('');
+    $('#itemPrice').val('');
 }
+
 
 function showError(error) {
 
@@ -129,11 +152,8 @@ function showError(error) {
         alert(messages);
 
     } else if (error.responseJSON) {
-
         alert(error.responseJSON.message);
-
     } else {
-
         alert("Something went wrong!");
     }
 }

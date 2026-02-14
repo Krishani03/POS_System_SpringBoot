@@ -19,7 +19,6 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void saveItem(ItemDTO itemDTO) {
 
-        // Auto ID Generate
         Item lastItem = itemRepository.findTopByOrderByIdDesc();
 
         String newId;

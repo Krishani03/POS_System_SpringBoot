@@ -26,7 +26,7 @@ public class ItemController {
         itemService.saveItem(itemDTO);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new APIResponse<>(201, "Item Saved", null));
+                .body(new APIResponse<>(201, "Item Saved!", null));
     }
 
     @PutMapping

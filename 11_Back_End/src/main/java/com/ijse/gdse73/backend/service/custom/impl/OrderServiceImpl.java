@@ -26,9 +26,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void placeOrder(OrderDTO orderDTO) {
 
-        // ========================
-        // AUTO ID GENERATE
-        // ========================
+
         Order lastOrder = orderRepository.findTopByOrderByIdDesc();
 
         String newId;
@@ -43,9 +41,7 @@ public class OrderServiceImpl implements OrderService {
 
         double total = 0;
 
-        // ========================
-        // STOCK CHECK + TOTAL CALC
-        // ========================
+
         for (OrderItemDTO orderItem : orderDTO.getItems()) {
 
             ItemDTO item = itemService.getItemById(orderItem.getItemId());
@@ -62,9 +58,7 @@ public class OrderServiceImpl implements OrderService {
             itemService.reduceStock(orderItem.getItemId(), orderItem.getQty());
         }
 
-        // ========================
-        // SAVE ORDER
-        // ========================
+
         Order order = new Order();
         order.setId(newId);
         order.setCustomerId(orderDTO.getCustomerId());

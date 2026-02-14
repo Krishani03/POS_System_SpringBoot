@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
+
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+.dashboard-title {
+    color:whitesmoke;
+    font-size: 40px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.dashboard-links a {
+    margin: 10px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    background: #00c6ff;
+    color: black;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.dashboard-links a:hover {
+    background: #0072ff;
+    color: white;
+}

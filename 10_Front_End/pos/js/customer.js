@@ -6,8 +6,13 @@ $(document).ready(function () {
 
 function saveCustomer() {
 
-    const name = $('#name').val();
-    const address = $('#address').val();
+    const name = $('#name').val().trim();
+    const address = $('#address').val().trim();
+
+    if (!name || !address) {
+        alert("Name and Address are required!");
+        return;
+    }
 
     $.ajax({
         url: baseUrl,
@@ -25,11 +30,12 @@ function saveCustomer() {
     });
 }
 
+
 function updateCustomer() {
 
     const id = $('#id').val();
-    const name = $('#name').val();
-    const address = $('#address').val();
+    const name = $('#name').val().trim();
+    const address = $('#address').val().trim();
 
     if (!id) {
         alert("Select customer first!");
@@ -51,6 +57,7 @@ function updateCustomer() {
         }
     });
 }
+
 
 function deleteCustomer() {
 
@@ -75,6 +82,7 @@ function deleteCustomer() {
     });
 }
 
+
 function getAllCustomer() {
 
     $('#customer-list').empty();
@@ -95,9 +103,13 @@ function getAllCustomer() {
 
                 $('#customer-list').append(row);
             }
+        },
+        error: function () {
+            alert("Failed to load customers!");
         }
     });
 }
+
 
 function selectCustomer(id, name, address) {
     $('#id').val(id);
@@ -105,11 +117,13 @@ function selectCustomer(id, name, address) {
     $('#address').val(address);
 }
 
+
 function clearCustomer() {
     $('#id').val('');
     $('#name').val('');
     $('#address').val('');
 }
+
 
 function showError(error) {
 
@@ -122,6 +136,7 @@ function showError(error) {
         }
 
         alert(messages);
+
     } else if (error.responseJSON) {
         alert(error.responseJSON.message);
     } else {
