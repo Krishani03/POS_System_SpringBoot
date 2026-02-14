@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS PRO | Customers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/customer-style.css">
+</head>
+<body>
+
+<aside class="sidebar-mini">
+    <div class="logo"><i class="fas fa-bolt"></i></div>
+    <nav class="mini-nav">
+        <a href="../index.html" title="Dashboard"><i class="fas fa-th-large"></i></a>
+        <a href="customer.html" class="active" title="Customers"><i class="fas fa-users"></i></a>
+        <a href="item.html" title="Inventory"><i class="fas fa-box"></i></a>
+        <a href="place-order.html" title="Orders"><i class="fas fa-shopping-cart"></i></a>
+    </nav>
+    <div class="user-av">A</div>
+</aside>
+
+<main class="content-wrapper">
+    <header class="header">
+        <div class="title-section">
+            <h1>Customer Management</h1>
+            <p>Register and manage store clients</p>
+        </div>
+    </header>
+
+    <section class="action-bar-card">
+        <form id="customer-form" class="horizontal-form" onsubmit="return false;">
+            <div class="input-field">
+                <span>ID</span>
+                <input type="text" id="id" placeholder="C001">
+            </div>
+            <div class="input-field">
+                <span>Full Name</span>
+                <input type="text" id="name" placeholder="Name here">
+            </div>
+            <div class="input-field">
+                <span>Address</span>
+                <input type="text" id="address" placeholder="Address here">
+            </div>
+
+            <div class="button-strip">
+                <button type="button" class="btn-main btn-save" onclick="saveCustomer()" title="Add New"><i class="fas fa-plus"></i></button>
+                <button type="button" class="btn-main btn-edit" onclick="updateCustomer()" title="Update"><i class="fas fa-pen"></i></button>
+                <button type="button" class="btn-main btn-trash" onclick="deleteCustomer()" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                <button type="button" class="btn-main btn-reset" onclick="clearCustomer()" title="Clear"><i class="fas fa-redo"></i></button>
+            </div>
+        </form>
+    </section>
+
+    <section class="table-container">
+        <table class="modern-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody id="customer-list">
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../js/customer-script.js"></script>
+</body>
+</html>

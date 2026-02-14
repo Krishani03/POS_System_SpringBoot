@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS PRO | Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar-mini">
+    <div class="logo"><i class="fas fa-bolt"></i></div>
+    <nav class="mini-nav">
+        <a href="index.html" class="active" title="Dashboard"><i class="fas fa-th-large"></i></a>
+        <a href="pages/customer.html" title="Customers"><i class="fas fa-users"></i></a>
+        <a href="pages/item.html" title="Inventory"><i class="fas fa-box"></i></a>
+        <a href="pages/place-order.html" title="Orders"><i class="fas fa-shopping-cart"></i></a>
+    </nav>
+    <div class="user-av">A</div>
+</aside>
+
+<main class="content-wrapper">
+    <header class="header">
+        <div class="title-section">
+            <h1>Store Overview</h1>
+            <p>Welcome back, Admin. Here's what's happening today.</p>
+        </div>
+        <div class="search-global">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search orders or items...">
+        </div>
+    </header>
+
+    <div class="dashboard-actions">
+        <a href="pages/customer.html" class="action-tile">
+            <div class="tile-icon"><i class="fas fa-user-plus"></i></div>
+            <h3>Customers</h3>
+            <p>Manage your client database</p>
+        </a>
+        <a href="pages/item.html" class="action-tile">
+            <div class="tile-icon"><i class="fas fa-boxes"></i></div>
+            <h3>Inventory</h3>
+            <p>Track stock and pricing</p>
+        </a>
+        <a href="pages/place-order.html" class="action-tile featured">
+            <div class="tile-icon"><i class="fas fa-cart-arrow-down"></i></div>
+            <h3>Place Order</h3>
+            <p>Launch the POS terminal</p>
+        </a>
+    </div>
+</main>
+
+</body>
+</html>
